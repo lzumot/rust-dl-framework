@@ -1,2 +1,56 @@
-# rust-dl-framework
-rust based deep learning framework
+# Rust Deep Learning Framework
+
+Rust Deep Learning Framework is an open-source deep learning library built with Rust, designed to be fast, efficient, and easy to use. It provides a flexible and intuitive API, allowing users to build, train, and deploy deep learning models with ease.
+
+## Features
+
+- High-performance tensor operations using ndarray
+- GPU support through [GPU backend library, if applicable]
+- Automatic differentiation for gradient computation
+- Pre-built layers and activation functions for quick model prototyping
+- Custom layer support for advanced use cases
+- Model serialization for easy deployment
+
+## Installation
+
+Ensure you have Rust and Cargo installed on your system. If not, follow the instructions at https://www.rust-lang.org/tools/install.
+
+To use Rust Deep Learning Framework in your project, add the following to your `Cargo.toml` file:
+
+```toml
+[dependencies]
+rust-dl-framework = { git = "https://github.com/lzumot/rust-dl-framework.git" }
+
+Usage
+Here's a simple example demonstrating how to create a model, train it, and make predictions:
+
+// Import necessary crates and modules
+// ...
+
+fn main() {
+    // Load data
+    // ...
+
+    // Create model
+    // ...
+
+    // Train model
+    // ...
+
+    // Make predictions
+    // ...
+}
+
+For more detailed examples and tutorials, check out the examples directory.
+
+Contributing
+We welcome contributions to Rust Deep Learning Framework! If you'd like to contribute, please follow these steps:
+
+Fork the repository.
+Create a new branch with a descriptive name.
+Make your changes, ensuring that your code follows the project's style guidelines and passes all tests.
+Commit your changes and create a pull request.
+For bug reports and feature requests, please open an issue on GitHub.
+
+License
+This project is licensed under the MIT License. See the LICENSE file for details.
