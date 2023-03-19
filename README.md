@@ -20,8 +20,9 @@ To use Rust Deep Learning Framework in your project, add the following to your `
 ```toml
 [dependencies]
 rust-dl-framework = { git = "https://github.com/lzumot/rust-dl-framework.git" }
+```
 
-Usage
+## Usage
 Here's a simple example demonstrating how to create a model, train it, and make predictions:
 
 // Import necessary crates and modules
@@ -43,14 +44,14 @@ fn main() {
 
 For more detailed examples and tutorials, check out the examples directory.
 
-Contributing
+## Contributing
 We welcome contributions to Rust Deep Learning Framework! If you'd like to contribute, please follow these steps:
 
-Fork the repository.
+##  Fork the repository.
 Create a new branch with a descriptive name.
 Make your changes, ensuring that your code follows the project's style guidelines and passes all tests.
 Commit your changes and create a pull request.
 For bug reports and feature requests, please open an issue on GitHub.
 
-License
+## License
 This project is licensed under the MIT License. See the LICENSE file for details.
