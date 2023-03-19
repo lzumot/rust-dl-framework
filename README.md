@@ -25,6 +25,7 @@ rust-dl-framework = { git = "https://github.com/lzumot/rust-dl-framework.git" }
 ## Usage
 Here's a simple example demonstrating how to create a model, train it, and make predictions:
 
+```
 // Import necessary crates and modules
 // ...
 
@@ -41,6 +42,7 @@ fn main() {
     // Make predictions
     // ...
 }
+```
 
 For more detailed examples and tutorials, check out the examples directory.
 
