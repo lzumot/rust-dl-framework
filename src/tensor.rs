@@ -4,9 +4,10 @@
 // src/tensor.rs
 
 use ndarray::{Array, ArrayBase, OwnedRepr, Ix1, Ix2};
-use ndarray_rand::rand_distr::Uniform;
-use rand::SeedableRng;
-use rand_pcg::Pcg64;
+use ndarray_rand::{RandomExt, rand_distr::Uniform};
+//use ndarray_rand::rand_distr::Uniform;
+//use rand::SeedableRng;
+//use rand_pcg::Pcg64;
 
 pub struct Tensor {
     pub data: ArrayBase<OwnedRepr<f32>, Ix1>,
@@ -35,13 +36,11 @@ impl Tensor {
     }
 
     // Create a new tensor with random values and a given shape
-    pub fn random(shape: (usize,)) -> Self {
-        let distribution = Uniform::new(0.0, 1.0);
-        let rng = Pcg64::from_entropy();
-        let random_array = Array::random_using(shape, distribution, rng);
-        Tensor { data: random_array }
+    pub fn random(shape: (usize,), range: (f32, f32)) -> Self {
+        let distribution = Uniform::new(range.0, range.1);
+        let random_array = Array::random(shape, distribution);
+        Self { data: random_array }
     }
-
 
     // Reshape a tensor to a new shape
     pub fn reshape(&self, new_shape: (usize, usize)) -> ArrayBase<OwnedRepr<f32>, Ix2> {
