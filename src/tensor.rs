@@ -3,8 +3,10 @@
 // and performing dot product operations between tensors.
 // src/tensor.rs
 
-use ndarray::{Array, ArrayBase, OwnedRepr, Ix1};
-//use std::ops::{Add, Sub, Mul, Div};
+use ndarray::{Array, ArrayBase, OwnedRepr, Ix1, Ix2};
+use ndarray_rand::rand_distr::Uniform;
+use rand::SeedableRng;
+use rand_pcg::Pcg64;
 
 pub struct Tensor {
     pub data: ArrayBase<OwnedRepr<f32>, Ix1>,
@@ -34,19 +36,16 @@ impl Tensor {
 
     // Create a new tensor with random values and a given shape
     pub fn random(shape: (usize,)) -> Self {
-        use ndarray_rand::rand_distr::Uniform;
-        use ndarray_rand::RandomExt;
-
         let distribution = Uniform::new(0.0, 1.0);
-        let random_array = Array::random(shape, distribution);
+        let rng = Pcg64::from_entropy();
+        let random_array = Array::random_using(shape, distribution, rng);
         Tensor { data: random_array }
     }
 
+
     // Reshape a tensor to a new shape
-    pub fn reshape(&self, new_shape: (usize,)) -> Self {
-        Tensor {
-            data: self.data.clone().into_shape(new_shape).unwrap(),
-        }
+    pub fn reshape(&self, new_shape: (usize, usize)) -> ArrayBase<OwnedRepr<f32>, Ix2> {
+        self.data.clone().into_shape(new_shape).unwrap()
     }
 
     // Perform dot product operation between two tensors

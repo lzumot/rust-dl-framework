@@ -27,10 +27,13 @@ fn test_tensor_ones() {
 #[test]
 fn test_tensor_reshape() {
     let data = vec![1.0, 2.0, 3.0, 4.0];
-    let tensor = Tensor::new((4,), data.clone());
-    let reshaped_tensor = tensor.reshape((2, 2));
+    let tensor = Tensor::new((4,), data);
 
-    assert_eq!(reshaped_tensor.data.shape(), &[2, 2]);
+    let reshaped_tensor = tensor.reshape((2, 2));
+    assert_eq!(reshaped_tensor[[0, 0]], 1.0);
+    assert_eq!(reshaped_tensor[[0, 1]], 2.0);
+    assert_eq!(reshaped_tensor[[1, 0]], 3.0);
+    assert_eq!(reshaped_tensor[[1, 1]], 4.0);
 }
 
 #[test]
